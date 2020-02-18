@@ -6,7 +6,23 @@
 @import "bootstrap";
 
 .container {
-  background-color: #f99;
+  background-color: gray;
+}
+
+.logo {
+  background-color: red;
+  color: #2eb6aa;
+  font-family: "Comic Sans MS";
+  font-size: 40px;
+}
+  
+.icon {
+  background-color: lime;
+  font-size: 40px;
+}
+
+.events {
+  background-color: aqua;
 }
 
 .content1 {
@@ -14,9 +30,14 @@
 }
 
 .content2 {
-  background-color: #99cc00;
+  background-color: lime;
 }
 
 .content3 {
-  background-color: #FF00FF;
+  background-color: yellow;
+}
+
+
+.footer {
+  background-color: bisque;
 }
