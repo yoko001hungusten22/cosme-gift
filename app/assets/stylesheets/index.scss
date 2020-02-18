@@ -1,0 +1,22 @@
+// Place all the styles related to the test controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container {
+  background-color: #f99;
+}
+
+.content1 {
+  background-color: bisque;
+}
+
+.content2 {
+  background-color: #99cc00;
+}
+
+.content3 {
+  background-color: #FF00FF;
+}
