@@ -11,10 +11,13 @@
   </head>
 
   <body>
-    <h1><%= image_tag("at_cosme_logo.jpg", :size =>'214x61', alt: "@cosme logo") %><font color="#2eb6aa">for gift</font></h1>
     <div class="container">
+      <div class="title">
+        <h1><%= image_tag("at_cosme_logo.jpg", :size =>'214x61', alt: "@cosme logo") %><font color="#2eb6aa">for gift</font></h1>
+      </div>
       <%= yield %>
+      <%= render 'layouts/event' %>
+      <%= render 'layouts/footer' %>
     </div>
-    <%= render 'layouts/event' %>
   </body>
 </html>

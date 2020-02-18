@@ -1,6 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.container {
+  background-color: #f99;
+}
+
+.content1 {
+  background-color: bisque;
+}
+
+.content2 {
+  background-color: #99cc00;
+}
+
+.content3 {
+  background-color: #FF00FF;
+}
+
 ul {
   list-style: none;
 }
