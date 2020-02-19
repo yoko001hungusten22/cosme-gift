@@ -3,21 +3,25 @@
   <head>
     <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                               'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application',
+    <%= stylesheet_link_tag    'index', media: 'all',
                                'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
 
   <body>
     <div class="container">
       <div class="title">
-        <h1><%= image_tag("at_cosme_logo.jpg", :size =>'214x61', alt: "@cosme logo") %><font color="#2eb6aa">for gift</font></h1>
+        <%= render 'layouts/title' %>
       </div>
-      <%= yield %>
-      <%= render 'layouts/event' %>
+      <div class="main row">
+        <%= render 'layouts/event' %>
+        <%= yield %>
+      </div>
       <%= render 'layouts/footer' %>
     </div>
+    <!--スタイルシートの次に埋め込んであったやつを以下に埋め込んで成功した-->
+    <%= javascript_include_tag 'application',
+                               'data-turbolinks-track': 'reload' %>
   </body>
 </html>

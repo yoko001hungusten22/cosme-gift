@@ -8,3 +8,77 @@
 h1{
   color:red;
 }
+
+
+.container {
+  background-color: #f99;
+}
+
+.content1 {
+  background-color: bisque;
+}
+
+.content2 {
+  background-color: #99cc00;
+}
+
+.content3 {
+  background-color: #FF00FF;
+}
+
+/*price wrapper*/
+.price-wrapper {
+  padding-top: 100px;
+  margin: 0 auto;
+  
+  h2{
+    text-align: center;
+  }
+}
+
+#price-list {
+  width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.list-name{
+  text-align: center;
+}
+
+/*アコーディオン */
+.price-list-item {
+  margin:10px;
+  border-bottom:1px solid #ccc;
+  position:relative;
+  cursor:pointer;
+  text-align: left;
+}
+
+.price-list-item h3 {
+  font-size: 20px;
+}
+
+.price-list-item span {
+  position:absolute;
+  top:0;
+  right:5px;
+  color:#ccc;
+  font-size:13px;
+}
+
+.answer {
+  font-size: 12px;
+  display: none;
+  padding: 5px 0px;
+  margin-bottom: 15px;
+}
+
+.image{
+  height: 180px;
+  width: 286px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}

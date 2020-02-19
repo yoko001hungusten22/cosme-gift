@@ -2,7 +2,7 @@ class MainController < ApplicationController
   def index
   end
 
-  def gift
+  def gift_new
     year = Date.today.year
     month = Date.today.month  #  TODO: 次イベントの判定ロジックが実装され次第それに換装
     params = URI.encode_www_form({client_id: '8f58b3318661f361f8e9b132ac356867d25ff005b4205b20eb1ce7f191cc0ccd'})
@@ -11,7 +11,20 @@ class MainController < ApplicationController
     result = convert_with_price(raw_hash["results"])
     @petitprice, @lowprice, @middleprice, @highprice = *result
   end
+
+  def gift_rank
+  end
+
+  def gift_recommend
+  end
+
+  def gift_event
+  end
+
+  def gift_month
+  end
 end
+
 
 def exec_api(uri)
     http = Net::HTTP.new(uri.host, uri.port)
