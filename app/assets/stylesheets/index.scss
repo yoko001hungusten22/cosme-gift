@@ -1,0 +1,54 @@
+// Place all the styles related to the test controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container {
+  background-color: #000000;
+}
+
+
+
+.logo {
+  background-color: red;
+}
+  
+.icon {
+  background-color: lime;
+}
+
+
+.events {
+  background-color: aqua;
+}
+
+
+// index
+.content1 {
+  background-color: bisque;
+}
+
+.content2 {
+  background-color: lime;
+}
+
+.content3 {
+  background-color: yellow;
+}
+
+
+
+// footer
+.links {
+  background-color: lightgray;
+  font-family: 'arial black';
+}
+
+$choco: #d2691e;
+.copyright {
+  background-color: $choco;
+  color: white;
+  text-align: center;
+}

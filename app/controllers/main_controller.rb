@@ -1,9 +1,9 @@
 class MainController < ApplicationController
-    def index
-    end
-  
-    def gift
-        @petitprice = [
+  def index
+  end
+
+  def gift_new
+      @petitprice = [
             {
                 "brand_name" => "ブランド名1",
                 "products" => [
@@ -71,5 +71,17 @@ class MainController < ApplicationController
                 ]
             }
         ]
-    end
+  end
+
+  def gift_rank
+  end
+  
+  def gift_recommend
+  end
+  
+  def gift_event
+  end
+  
+  def gift_month
+  end
 end
