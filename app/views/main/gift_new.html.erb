@@ -1,8 +1,6 @@
 <%= stylesheet_link_tag 'gift' %>
 <% provide(:title, "ギフト一覧") %>
 
-<div class="container">
-  <div class="row">
 <div class="col-md-9">
 <div class="price-wrapper">
         <h2>価格帯・ブランド別</h2>
@@ -15,20 +13,21 @@
             <div class="answer">
                 <div class="row">
                 <% @petitprice.each do |brand| %>
-                  <div class="col-md-4">
-                      <div class="card">
-                      <%= brand["brand_name"] %>
+                      <%= brand["brand_name"] %><br><br>
                           <% brand["products"].each do |product| %>
                             <div class="col-md-4">
-                                <%= product["item_name"] %>
-                                <%= product["price"] %>
-                                <%= product["release_at"] %>
-                                <%= product["shopping_link"] %>
+                              <div class="thumbnail">
                                 <%= image_tag product["image_url"]%>
+                                <div class="caption">
+                                  <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
+                                  <h6><%= product["price"] %></h6>
+                                  <span class="time">
+                                  <%= product["release_at"] %>
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                         <% end %>
-                      </div>
-                  </div>
                 <% end %>
                 </div>
             </div>
@@ -37,18 +36,77 @@
             <h3 class="list-name">~5000円</h3>
             <span>+</span>
             <div class="answer">
-              <p>リストアップ</p>
+              <div class="row">
+                <% @lowprice.each do |brand| %>
+                      <%= brand["brand_name"] %><br><br>
+                          <% brand["products"].each do |product| %>
+                            <div class="col-md-4">
+                              <div class="thumbnail">
+                                <%= image_tag product["image_url"]%>
+                                <div class="caption">
+                                  <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
+                                  <h6><%= product["price"] %></h6>
+                                  <span class="time">
+                                  <%= product["release_at"] %>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                        <% end %>
+                <% end %>
+                </div
             </div>
           </li>
           <li class="price-list-item">
             <h3 class="list-name">~10000円</h3>
             <span>+</span>
             <div class="answer">
-              <p>リストアップ</p>
+              <div class="row">
+                <% @middleprice.each do |brand| %>
+                      <%= brand["brand_name"] %><br><br>
+                          <% brand["products"].each do |product| %>
+                            <div class="col-md-4">
+                              <div class="thumbnail">
+                                <%= image_tag product["image_url"]%>
+                                <div class="caption">
+                                  <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
+                                  <h6><%= product["price"] %></h6>
+                                  <span class="time">
+                                  <%= product["release_at"] %>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                        <% end %>
+                <% end %>
+                </div
+            </div>
+          </li>
+          <li class="price-list-item">
+            <h3 class="list-name">10000~円</h3>
+            <span>+</span>
+            <div class="answer">
+              <div class="row">
+                <% @highprice.each do |brand| %>
+                      <%= brand["brand_name"] %><br><br>
+                          <% brand["products"].each do |product| %>
+                            <div class="col-md-4">
+                              <div class="thumbnail">
+                                <%= image_tag product["image_url"]%>
+                                <div class="caption">
+                                  <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
+                                  <h6><%= product["price"] %></h6>
+                                  <span class="time">
+                                  <%= product["release_at"] %>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                        <% end %>
+                <% end %>
+                </div
             </div>
           </li>
         </ul>
-  </div>
-  </div>
-  </div>
+</div>
 </div>

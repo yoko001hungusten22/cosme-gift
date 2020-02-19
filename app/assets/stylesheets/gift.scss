@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap";
 
 h1{
   color:red;
@@ -81,4 +81,8 @@ h1{
   object-fit: cover;
   display: block;
   margin: 0 auto;
+}
+
+.thumbnail{
+  width: fit-content;
 }
