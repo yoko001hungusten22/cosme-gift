@@ -10,4 +10,10 @@ class MainController < ApplicationController
   
   def gift_recommend
   end
+  
+  def gift_event
+  end
+  
+  def gift_month
+  end
 end

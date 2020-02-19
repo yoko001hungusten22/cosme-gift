@@ -1,15 +1,18 @@
-<% events = ["成人の日", "バレンタインデー", "ホワイトデー", "卒業式・追いコン",
-             "入学式", "こどもの日", "母の日", "父の日", "敬老感謝の日",
-             "ハロウィン", "クリスマス"] %>
+<% events = { "成人の日" => "coming_of_age", "バレンタインデー" => "valentine",
+              "ホワイトデー" => "white", "卒業式・追いコン" => "graduation",
+             "入学式" => "entrance", "こどもの日" => "childrens",
+             "母の日" => "mothers", "父の日" => "fathers", "敬老感謝の日" => "thanksgiving",
+             "ハロウィン" => "halloween", "クリスマス" => "christmas"} %>
 <% months = ["1月", "2月", "3月", "4月", "5月", "6月", 
              "7月", "8月", "9月", "10月", "11月", "12月"] %>
 
 <div class="events col-md-3">
   イベントから探す
   <ul>
-    <% events.each do |event| %>
+    <% events.each do |key, value| %>
       <li>
-        <%= event %>
+        <%= key %>
+        <%= value %>
       </li>
     <% end %>
   </ul>
