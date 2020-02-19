@@ -6,36 +6,73 @@
 @import "bootstrap";
 
 .container {
-  background-color: #000000;
+  background-color: snow;
+  display: inline-block;
+	min-width: 103%;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 
 
+// title
 .logo {
-  background-color: red;
+  background-color: white;
+  border-bottom: 1px solid #000000;
 }
-  
+
 .icon {
-  background-color: lime;
+  background-color: white;
+  border-bottom: 1px solid #000000;
+  border-left: 1px solid #000000;
 }
 
 
+
+// events
 .events {
-  background-color: aqua;
+  // background-color: aqua;
+  border-right: 1px solid #000000;
+  margin-left: 15px;
+  margin-right: 20px;
 }
+
 
 
 // index
 .content1 {
-  background-color: bisque;
+  background-color: lightcyan;
+  margin-top: 30px;
+  margin-right: 15px;
+  padding-bottom: 10px;
 }
 
 .content2 {
-  background-color: lime;
+  background-color: lightcyan;
+  margin-top: 30px;
+  margin-right: 15px;
+  padding-bottom: 10px;
 }
 
 .content3 {
-  background-color: yellow;
+  background-color: lightcyan;
+  margin-top: 30px;
+  margin-right: 15px;
+  padding-bottom: 10px;
+}
+
+h1,h5 {
+  color: black;
+}
+
+.img {
+  margin: 10px 0px;
+}
+
+.right {
+  color: black;
+  display: block;
+  text-align: right;
 }
 
 
