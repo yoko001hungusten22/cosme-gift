@@ -1,3 +1,4 @@
+<% year = 2020 %> 
 <% events = { "成人の日" => "coming_of_age", "バレンタインデー" => "valentine",
               "ホワイトデー" => "white", "卒業式・追いコン" => "graduation",
              "入学式" => "entrance", "こどもの日" => "childrens",
@@ -11,8 +12,7 @@
   <ul>
     <% events.each do |key, value| %>
       <li>
-        <%= key %>
-        <%= value %>
+        <%= link_to key, gift_event_path(year,value) %>
       </li>
     <% end %>
   </ul>
@@ -20,7 +20,7 @@
   <ul>
     <% months.each do |month| %>
       <li>
-        <%= month %>
+        <%= link_to month, gift_month_path(year,month.delete("月")) %>
       </li>
     <% end %>
   </ul>
