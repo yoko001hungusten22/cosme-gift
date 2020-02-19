@@ -51,11 +51,11 @@ def convert_with_price(raw_hash)
         end
         price = product["sku"]["volume_sales"][0]["sales"]["price_value_from"]
         prod = {
-          "name" => product["product_name"],
+          "item_name" => product["product_name"],
           "price" => price,
-          "image-url" => product["image_url"],
-          "release-at" => Date.strptime(release_at,'%Y-%m-%d'),
-          "shopping-link" => product["shopping_link"]
+          "image_url" => product["image_url"],
+          "release_at" => Date.strptime(release_at,'%Y-%m-%d'),
+          "shopping_link" => product["shopping_link"]
         }
         group_by_price_range[rate_index(price.to_i)][brand_name].push(prod)
       end
