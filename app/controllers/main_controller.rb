@@ -4,4 +4,7 @@ class MainController < ApplicationController
 
   def gift
   end
+
+  def gift_rank
+  end
 end
