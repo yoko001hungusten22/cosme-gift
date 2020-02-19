@@ -3,7 +3,7 @@
   <head>
     <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
+    <%= stylesheet_link_tag    'index', media: 'all',
                                'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -11,11 +11,14 @@
 
   <body>
     <div class="container">
-      <div class="title">
-        <h1><%= image_tag("at_cosme_logo.jpg", :size =>'214x61', alt: "@cosme logo") %><font color="#2eb6aa">for gift</font></h1>
+      <div class="title row">
+        <div class="logo col-md-11"><%= link_to image_tag("for_gift_logo.png", :size =>'420x61', alt: "@cosme logo"), root_path %></div>
+        <div class="icon col-md-1"><a href="https://www.cosme.net" target="_blank"><%= image_tag("at_cosme_icon.jpg", :size =>'66x61', alt: "@cosme icon") %></a>
       </div>
-      <%= yield %>
-      <%= render 'layouts/event' %>
+      <div class="main-contents">
+        <%= render 'layouts/event' %>
+        <%= yield %>
+      </div>
       <%= render 'layouts/footer' %>
     </div>
     <!--スタイルシートの次に埋め込んであったやつを以下に埋め込んで成功した-->
