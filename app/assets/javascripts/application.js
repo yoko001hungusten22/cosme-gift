@@ -13,3 +13,24 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$('.price-list-item').click(function() {
+    var $answer = $(this).find('.answer');
+    if($answer.hasClass('open')) { 
+      $answer.removeClass('open');
+      // slideUpメソッドを用いて、$answerを隠す
+      $answer.slideUp();
+
+      // 子要素のspanタグの中身をtextメソッドを用いて書き換える
+      $(this).find('span').text('+');
+      
+    } else {
+      $answer.addClass('open'); 
+      // slideDownメソッドを用いて、$answerを表示する
+      $answer.slideDown();
+      
+      // 子要素のspanタグの中身をtextメソッドを用いて書き換える
+      $(this).find('span').text('-');
+      
+    }
+  });
