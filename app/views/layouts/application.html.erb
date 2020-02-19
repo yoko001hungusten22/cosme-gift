@@ -11,11 +11,10 @@
 
   <body>
     <div class="container">
-      <div class="title row">
-        <div class="logo col-md-11"><%= link_to image_tag("for_gift_logo.png", :size =>'420x61', alt: "@cosme logo"), root_path %></div>
-        <div class="icon col-md-1"><a href="https://www.cosme.net" target="_blank"><%= image_tag("at_cosme_icon.jpg", :size =>'66x61', alt: "@cosme icon") %></a>
+      <div class="title">
+        <%= render 'layouts/title' %>
       </div>
-      <div class="main-contents">
+      <div class="main row">
         <%= render 'layouts/event' %>
         <%= yield %>
       </div>
