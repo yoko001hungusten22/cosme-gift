@@ -86,3 +86,8 @@ h1{
 .thumbnail{
   width: fit-content;
 }
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+}
