@@ -57,6 +57,9 @@ def convert_with_price(raw_hash)
           next
         end
         price = product["sku"]["volume_sales"][0]["sales"]["price_value_from"]
+        if product["image_url"].nil?
+          product["image_url"] = "https://lh3.googleusercontent.com/proxy/q9K-584jea7P1JJu_HKizXAOZRuGvhq3hqpTF_mMamAgF9vr8NBtWUgLeGnHUx0yPjZnR3sI26QeTbWfUlDynP6Y3oayozuRRdqKFY8"
+        end
         prod = {
           "item_name" => product["product_name"],
           "price" => price,
