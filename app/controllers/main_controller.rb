@@ -108,3 +108,34 @@ def convert_with_rank(raw_hash)
   end
   return converted_rank
 end
+
+# date:String (example: date = "0125")
+def date2event(date)
+  if date <= "0115" then
+    return "coming_of_age"
+  elsif date <= "0214" then
+    return "valentine"
+  elsif date <= "0314" then
+    return "white"
+  elsif date <= "0331" then
+    return "graduation"
+  elsif date <= "0415" then
+    return "entrance"
+  elsif date <= "0505" then
+    return "childrens"
+  elsif date <= "0515" then
+    return "mothers"
+  elsif date <= "0615" then
+    return "fathers"
+  elsif date <= "0921" then
+    return "thanksgiving"
+  elsif date <= "1031" then
+    return "halloween"
+  elsif date <= "1225" then
+    return "christmas"
+  elsif date <= "1231" then
+    return "coming_of_age"
+  else
+    return false
+  end
+end
