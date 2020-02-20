@@ -1,15 +1,22 @@
 <%= stylesheet_link_tag 'gift' %>
 <% provide(:title, "ランキング一覧") %>
 
-<div class="container">
-  <div class="row">
-    
 <div class="col-md-9">
-    <div class="price-wrapper">
-        <h2>おすすめランキング</h2>
-      
-    </div>
-</div>
-
-</div>
+  <div class="price-wrapper">
+    <h2>おすすめランキング</h2>
+        <% @ranking.each do |item| %>
+        <div class="row">
+          <div class="col-md-4">
+            <%= item["rank"] %><br><br>
+                <div class="thumbnail">
+                    <%= image_tag item["image_url"]%>
+                    <div class="caption">
+                        <h5><%= link_to item["item_name"], item["shopping_link"] %></h5>
+                        <h6><%= item["volume_price_label"] %><%= item["price"] %></h6>
+                    </div>
+                </div>
+            <% end %>
+          </div>
+        </div>
+  </div>
 </div>
