@@ -4,10 +4,15 @@ class MainController < ApplicationController
 
   def gift_new
     year = Date.today.year
-    month = Date.today.month  #  TODO: 次イベントの判定ロジックが実装され次第それに換装
-    params = URI.encode_www_form({client_id: '8f58b3318661f361f8e9b132ac356867d25ff005b4205b20eb1ce7f191cc0ccd'})
-    uri = URI.parse("https://pf-api.cosme.net/cosme/v3/product_releases/#{year}/#{month}?#{params}")
-    raw_hash = exec_api(uri)
+    month = Date.today.month  # TODO: 次イベントの判定ロジックが実装され次第それに換装
+    filename = "#{Rails.root}/lib/new_release/new_release_#{year}_#{month}.json"
+    begin
+      raw_hash = File.open(filename) do |json_file|
+        JSON.load(json_file)
+      end
+    rescue => error
+      filename = "#{Rails.root}/lib/new_release/sample.json"
+    end
     result = convert_with_price(raw_hash["results"])
     @petitprice, @lowprice, @middleprice, @highprice = *result
   end
