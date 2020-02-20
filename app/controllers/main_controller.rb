@@ -29,10 +29,6 @@ class MainController < ApplicationController
       filename = "#{Rails.root}/lib/new_release/new_release_#{year}_#{month}.json"
       raw_hashes.push(get_json(filename))
     end
-    # puts month1, month_to_year(month1), month2, month_to_year(month2)
-    # puts month_from_event_name(event_name)
-    # year = Date.today.year
-    # month = Date.today.month  # TODO: 次イベントの判定ロジックが実装され次第それに換装
     
     result = convert_with_price(raw_hashes)
     @petitprice, @lowprice, @middleprice, @highprice = *result
