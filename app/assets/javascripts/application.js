@@ -14,15 +14,15 @@
 //= require turbolinks
 //= require_tree .
 
-$('.price-list-item').click(function() {
-    var $answer = $(this).find('.answer');
+$('.list-head').click(function() {
+    var $answer = $(this).parent().find('.answer');
     if($answer.hasClass('open')) { 
       $answer.removeClass('open');
       // slideUpメソッドを用いて、$answerを隠す
       $answer.slideUp();
 
       // 子要素のspanタグの中身をtextメソッドを用いて書き換える
-      $(this).find('span').text('+');
+      $(this).find('.list-icon').text('+');
       
     } else {
       $answer.addClass('open'); 
@@ -30,7 +30,7 @@ $('.price-list-item').click(function() {
       $answer.slideDown();
       
       // 子要素のspanタグの中身をtextメソッドを用いて書き換える
-      $(this).find('span').text('-');
+      $(this).find('.list-icon').text('-');
       
     }
   });

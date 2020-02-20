@@ -1,112 +1,109 @@
 <%= stylesheet_link_tag 'gift' %>
 <% provide(:title, "ギフト一覧") %>
 
-<div class="col-md-9">
-<div class="price-wrapper">
-        <h2>価格帯・ブランド別</h2>
-</div>
-      <div class="price">
-        <ul id="price-list">
-          <li class="price-list-item">
-            <h3 class="list-name">プチプラ</h3>
-            <span>+</span>
-            <div class="answer">
-                <% @petitprice.each do |brand| %>
-                  <div class="row">
-                    <%= brand["brand_name"] %><br><br>
-                    <% brand["products"].each do |product| %>
-                      <div class="col-md-4">
-                        <div class="thumbnail">
-                          <%= image_tag product["image_url"]%>
-                          <div class="caption">
-                            <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
-                            <h6><%= product["price"] %></h6>
-                            <span class="time">
-                              <%= product["release_at"] %>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
+<div class="col-md-9" style="margin-top: 3rem" ;>
+  <div class="price">
+    <ul id="price-list">
+      <li class="price-list-item">
+        <div class="list-head">
+          <h3 class="list-name">プチプラ</h3>
+          <span class="list-icon">+</span>
+        </div>
+        <div class="answer">
+          <% @petitprice.each do |brand| %>
+          <div class="row">
+            <%= tag.span brand["brand_name"], class:"brand_name"%><br><br>
+            <% brand["products"].each do |product| %>
+            <%= link_to product["shopping_link"] do %>
+            <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
+              <%= image_tag product["image_url"], :size =>'80x80'%>
+              <div class="caption">
+                <p class="line-3"><%= product["item_name"]%></p>
+                <%= number_with_delimiter(product["price"]) %>円 <br>
+                <%= tag.span product["release_at"].strftime("%Y年%m月%d日"), class:"time"%>
+              </div>
             </div>
-          </li>
-          <li class="price-list-item">
-            <h3 class="list-name">~5000円</h3>
-            <span>+</span>
-            <div class="answer">
-                <% @lowprice.each do |brand| %>
-                  <div class="row">
-                    <%= brand["brand_name"] %><br><br>
-                    <% brand["products"].each do |product| %>
-                      <div class="col-md-4">
-                        <div class="thumbnail">
-                          <%= image_tag product["image_url"]%>
-                          <div class="caption">
-                            <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
-                            <h6><%= product["price"] %></h6>
-                            <span class="time">
-                              <%= product["release_at"] %>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
+            <% end %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </li>
+      <li class="price-list-item">
+        <div class="list-head">
+          <h3 class="list-name">2,000~5,000円</h3>
+          <span class="list-icon">+</span>
+        </div>
+        <div class="answer">
+          <% @lowprice.each do |brand| %>
+          <div class="row">
+            <%= tag.span brand["brand_name"], class:"brand_name" %><br><br>
+            <% brand["products"].each do |product| %>
+            <%= link_to product["shopping_link"] do %>
+            <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
+              <%= image_tag product["image_url"], :size =>'80x80'%>
+              <div class="caption">
+                <p class="line-3"><%= product["item_name"]%></p>
+                <%= number_with_delimiter(product["price"]) %>円 <br>
+                <%= tag.span product["release_at"].strftime("%Y年%m月%d日"), class:"time"%>
+              </div>
             </div>
-          </li>
-          <li class="price-list-item">
-            <h3 class="list-name">~10000円</h3>
-            <span>+</span>
-            <div class="answer">
-              <% @middleprice.each do |brand| %>
-                  <div class="row">
-                    <%= brand["brand_name"] %><br><br>
-                    <% brand["products"].each do |product| %>
-                      <div class="col-md-4">
-                        <div class="thumbnail">
-                          <%= image_tag product["image_url"]%>
-                          <div class="caption">
-                            <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
-                            <h6><%= product["price"] %></h6>
-                            <span class="time">
-                              <%= product["release_at"] %>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    <% end %>
-                  </div>
-                <% end %>
+            <% end %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </li>
+      <li class="price-list-item">
+        <div class="list-head">
+          <h3 class="list-name">5,000~10,000円</h3>
+          <span class="list-icon">+</span>
+        </div>
+        <div class="answer">
+          <% @middleprice.each do |brand| %>
+          <div class="row">
+            <%= tag.span brand["brand_name"], class:"brand_name" %><br><br>
+            <% brand["products"].each do |product| %>
+            <%= link_to product["shopping_link"] do %>
+            <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
+              <%= image_tag product["image_url"], :size =>'80x80'%>
+              <div class="caption">
+                <p class="line-3"><%= product["item_name"]%></p>
+                <%= number_with_delimiter(product["price"]) %>円 <br>
+                <%= tag.span product["release_at"].strftime("%Y年%m月%d日"), class:"time"%>
+              </div>
             </div>
-          </li>
-          <li class="price-list-item">
-            <h3 class="list-name">10000~円</h3>
-            <span>+</span>
-            <div class="answer">
-              <% @highprice.each do |brand| %>
-                <div class="row">
-                  <%= brand["brand_name"] %><br><br>
-                  <% brand["products"].each do |product| %>
-                    <div class="col-md-4">
-                      <div class="thumbnail">
-                        <%= image_tag product["image_url"]%>
-                        <div class="caption">
-                          <h5><%= link_to product["item_name"], product["shopping_link"] %></h5>
-                          <h6><%= product["price"] %></h6>
-                          <span class="time">
-                            <%= product["release_at"] %>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
+            <% end %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </li>
+      <li class="price-list-item">
+        <div class="list-head">
+          <h3 class="list-name">10,000円以上</h3>
+          <span class="list-icon">+</span>
+        </div>
+        <div class="answer">
+          <% @highprice.each do |brand| %>
+          <div class="row">
+            <%= tag.span brand["brand_name"], class:"brand_name" %><br><br>
+            <% brand["products"].each do |product| %>
+            <%= link_to product["shopping_link"] do %>
+            <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
+              <%= image_tag product["image_url"], :size =>'80x80'%>
+              <div class="caption">
+                <p class="line-3"><%= product["item_name"]%></p>
+                <%= number_with_delimiter(product["price"]) %>円 <br>
+                <%= tag.span product["release_at"].strftime("%Y年%m月%d日"), class:"time"%>
+              </div>
             </div>
-          </li>
-        </ul>
-</div>
+            <% end %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
