@@ -12,6 +12,9 @@ class MainController < ApplicationController
       end
     rescue => error
       filename = "#{Rails.root}/lib/new_release/sample.json"
+      raw_hash = File.open(filename) do |json_file|
+        JSON.load(json_file)
+      end
     end
     result = convert_with_price(raw_hash["results"])
     @petitprice, @lowprice, @middleprice, @highprice = *result
