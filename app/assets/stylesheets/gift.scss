@@ -3,16 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap-sprockets";
-// @import "bootstrap";
-
-h1{
-  color:red;
-}
-
-
-.container {
-  background-color: #f99;
-}
 
 .content1 {
   background-color: bisque;
@@ -52,20 +42,36 @@ h1{
   margin:10px;
   border-bottom:1px solid #ccc;
   position:relative;
-  cursor:pointer;
   text-align: left;
+}
+
+.list-head {
+  cursor:pointer;
 }
 
 .price-list-item h3 {
   font-size: 20px;
 }
 
-.price-list-item span {
+.price-list-item .list-icon {
   position:absolute;
-  top:0;
-  right:5px;
+  top:1em;
+  right:10px;
+  color:#fff;
+  font-size:2rem;
+  display: inline-block;
+  text-decoration: none;
+  background: #8FD8D1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.time {
   color:#ccc;
-  font-size:13px;
+  font-size:9px;
 }
 
 .answer {
@@ -73,6 +79,11 @@ h1{
   display: none;
   padding: 5px 0px;
   margin-bottom: 15px;
+}
+
+.brand_name {
+  font-size: 2rem;
+  background: linear-gradient(transparent 50%, #8FD8D1 50%);
 }
 
 .image{
@@ -83,11 +94,13 @@ h1{
   margin: 0 auto;
 }
 
-.thumbnail{
-  width: fit-content;
-}
-
 .row-eq-height {
   display: flex;
   flex-wrap: wrap;
+}
+
+.line-3 {
+  overflow: hidden;
+  height: 5em;
+  line-height: 1.8;
 }
