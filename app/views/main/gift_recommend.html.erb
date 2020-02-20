@@ -1,0 +1,57 @@
+<% provide(:title, "おすすめ") %>
+
+<style>
+  .form_title {
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .form {
+    background-color: lightgray;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+    border-radius: 10px;
+  }
+  .result {
+    background-color: lightgray;
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 150px;
+    border-radius: 10px;
+  }
+  .no_image {
+    margin-left: 5px;
+  }
+</style>
+
+<div class="form_title col-md-9">
+  <h1>普段使っているコスメを入力してね♪</h1>
+  <h4><a href="https://www.cosme.net" target="_blank"><font color="#2EB6AA">@cosme</font></a>のデータを使って
+  普段使いしているコスメからあなたにピッタリの新しいコスメをおすすめするよ♪</h4>
+</div>
+<div class="form col-md-2">
+  <form>
+    <br>
+    コスメ1
+    <input><br><br>
+    コスメ2
+    <input><br><br>
+    コスメ3
+    <input><br><br>
+    コスメ4
+    <input><br><br>
+    <input type="submit" name="btng" value="コスメを見つける！"><br><br>
+  </form>
+</div>
+
+<a href=<%= gift_recommend_path %>>
+  <div class="result col-md-3">
+    <h4>あなたにぴったりのコスメは・・・</h4>
+    <div class="no_image">
+      <img src="https://www.photolibrary.jp/mhd4/img492/450-20161013225958181017.jpg" alt="no image" width="290" height="290" border="0" />
+    </div>
+    <h5 class="check">CHECK!</h5>
+  </div>
+</a>
