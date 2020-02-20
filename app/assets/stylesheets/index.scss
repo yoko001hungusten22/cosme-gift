@@ -8,7 +8,7 @@
 
 // background
 .container {
-  background-color: snow;
+  background-color: #e5ffff;
   display: inline-block;
 	min-width: 103%;
   margin-left: -15px;
@@ -52,53 +52,72 @@ ul li {
   padding: 0.5em;
   list-style-type: none!important;
 }
+.event {
+  transition: all 0.3s ease 0s;
+}
+.event:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
 .birthday {
   border-left: solid 8px $birthday;
   background: $light_birthday;
+  color: $birthday;
 }
 .coming_of_age {
   border-left: solid 8px $coming_of_age;
   background: $light_coming_of_age;
+  color: $coming_of_age;
 }
 .valentine {
   border-left: solid 8px $valentine;
   background: $light_valentine;
+  color: $valentine;
 }
 .white {
   border-left: solid 8px $white;
   background: $light_white;
+  color: $white;
 }
 .graduation {
   border-left: solid 8px $graduation;
   background: $light_graduation;
+  color: $graduation;
 }
 .entrance {
   border-left: solid 8px $entrance;
   background: $light_entrance;
+  color: $entrance;
 }
 .childrens {
   border-left: solid 8px $childrens;
   background: $light_childrens;
+  color: $childrens;
 }
 .mothers {
   border-left: solid 8px $mothers;
   background: $light_mothers;
+  color: $mothers;
 }
 .fathers {
   border-left: solid 8px $fathers;
   background: $light_fathers;
+  color: $fathers;
 }
 .thanksgiving {
   border-left: solid 8px $thanksgiving;
   background: $light_thanksgiving;
+  color: $thanksgiving;
 }
 .halloween {
   border-left: solid 8px $halloween;
   background: $light_halloween;
+  color: $halloween;
 }
 .christmas {
   border-left: solid 8px $christmas;
   background: $light_christmas;
+  color: $christmas;
 }
 
 
@@ -107,11 +126,18 @@ ul li {
 .event_name {
   font-size: 40px;
   margin: 5px 15px;
+  border-radius: 10px;
 }
 .content {
   background-color: lightcyan;
   margin-top: 5px;
   margin-right: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease 0s;
+}
+.content:hover {
+  cursor: pointer;
+  transform: scale(1.05, 1.05);
 }
 .check {
   display: block;
@@ -178,4 +204,9 @@ ul li {
   background-color: $choco;
   color: white;
   text-align: center;
+}
+
+.colorless {
+  color: black;
+  background: white;
 }

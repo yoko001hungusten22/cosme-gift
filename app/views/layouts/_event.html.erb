@@ -17,7 +17,7 @@
   <h4>イベント一覧</h4>
   <ul>
     <% ja2en.each do |key, value| %>
-      <a href=<%= index_event_path(value) %> ><li class="<%= value %>"><%= key %></li></a>
+      <a href=<%= index_event_path(value) %> ><li class="event <%= value %>"><%= key %></li></a>
     <% end %>
   </ul>
 </div>
