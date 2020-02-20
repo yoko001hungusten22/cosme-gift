@@ -13,6 +13,13 @@ class MainController < ApplicationController
   end
 
   def gift_rank
+    params = URI.encode_www_form({
+      count: 50,
+      client_id: '8f58b3318661f361f8e9b132ac356867d25ff005b4205b20eb1ce7f191cc0ccd'
+    })
+    uri = URI.parse("https://pf-api.cosme.net/cosme/v2/ranking/products?#{params}")
+    raw_hash = exec_api(uri)
+    @ranking = convert_with_rank(raw_hash)
   end
 
   def gift_recommend
@@ -84,6 +91,22 @@ def rate_index(price)
   else
     return 3
   end
+end
+
+def convert_with_rank(raw_hash)
+  converted_rank = []
+  for rank in raw_hash["result"]
+    item = {
+        'rank'=> rank['rank'],
+        'item_name'=> rank['product_name'],
+        'brand_name'=> rank['brand_name'],
+        'volume_price_label'=> rank['volume_price_label'],
+        'image_url'=> rank['image_url'],
+        'shopping_link'=> rank['shopping_link']
+    }
+    converted_rank.append(item)
+  end
+  return converted_rank
 end
 
 # date:String (example: date = "0125")
