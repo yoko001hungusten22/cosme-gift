@@ -37,6 +37,26 @@ class MainController < ApplicationController
     end
     result = convert_with_price(raw_hash["results"])
     @petitprice, @lowprice, @middleprice, @highprice = *result
+    
+    en2ja = { "birthday" => "誕生日",
+              "coming_of_age" => "成人の日",
+              "valentine" => "バレンタインデー",
+              "white" => "ホワイトデー",
+              "graduation" => "卒業式・追いコン",
+              "entrance" => "入学式",
+              "childrens" => "こどもの日",
+              "mothers" => "母の日",
+              "fathers" => "父の日",
+              "thanksgiving" => "敬老感謝の日",
+              "halloween" => "ハロウィン",
+              "christmas" => "クリスマス"}
+    if params[:event_name]==nil then
+      @event_name_en = date2event(Date.today.strftime("%m%d"))
+      @event_name_ja = en2ja[date2event(Date.today.strftime("%m%d"))]
+    else
+      @event_name_en = params[:event_name]
+      @event_name_ja = en2ja[params[:event_name]]
+    end
   end
 
   def gift_rank
