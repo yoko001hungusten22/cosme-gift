@@ -4,7 +4,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "./colors";
 
+// background
 .container {
   background-color: snow;
   display: inline-block;
@@ -33,46 +35,136 @@
 .events {
   // background-color: aqua;
   border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
   margin-left: 15px;
   margin-right: 20px;
+}
+// https://saruwakakun.com/html-css/reference/ul-ol-li-design
+ul {
+  padding: 0;
+  position: relative;
+}
+ul li {
+  color: black;
+  margin-bottom: 5px;
+  line-height: 1.5;
+  border-radius: 0 15px 15px 0;
+  padding: 0.5em;
+  list-style-type: none!important;
+}
+.birthday {
+  border-left: solid 8px $birthday;
+  background: $light_birthday;
+}
+.coming_of_age {
+  border-left: solid 8px $coming_of_age;
+  background: $light_coming_of_age;
+}
+.valentine {
+  border-left: solid 8px $valentine;
+  background: $light_valentine;
+}
+.white {
+  border-left: solid 8px $white;
+  background: $light_white;
+}
+.graduation {
+  border-left: solid 8px $graduation;
+  background: $light_graduation;
+}
+.entrance {
+  border-left: solid 8px $entrance;
+  background: $light_entrance;
+}
+.childrens {
+  border-left: solid 8px $childrens;
+  background: $light_childrens;
+}
+.mothers {
+  border-left: solid 8px $mothers;
+  background: $light_mothers;
+}
+.fathers {
+  border-left: solid 8px $fathers;
+  background: $light_fathers;
+}
+.thanksgiving {
+  border-left: solid 8px $thanksgiving;
+  background: $light_thanksgiving;
+}
+.halloween {
+  border-left: solid 8px $halloween;
+  background: $light_halloween;
+}
+.christmas {
+  border-left: solid 8px $christmas;
+  background: $light_christmas;
 }
 
 
 
 // index
-.content1 {
+.event_name {
+  font-size: 40px;
+  margin: 5px 15px;
+}
+.content {
   background-color: lightcyan;
-  margin-top: 30px;
+  margin-top: 5px;
   margin-right: 15px;
-  padding-bottom: 10px;
 }
-
-.content2 {
-  background-color: lightcyan;
-  margin-top: 30px;
-  margin-right: 15px;
-  padding-bottom: 10px;
-}
-
-.content3 {
-  background-color: lightcyan;
-  margin-top: 30px;
-  margin-right: 15px;
-  padding-bottom: 10px;
-}
-
-h1,h5 {
-  color: black;
-}
-
-.img {
-  margin: 10px 0px;
-}
-
-.right {
-  color: black;
+.check {
   display: block;
   text-align: right;
+}
+
+.birthday_content {
+  color: $birthday;
+  background-color: $light_birthday;
+}
+.coming_of_age_content {
+  color: $coming_of_age;
+  background-color: $light_coming_of_age;
+}
+.valentine_content {
+  color: $valentine;
+  background-color: $light_valentine;
+}
+.white_content {
+  color: $white;
+  background-color: $light_white;
+}
+.graduation_content {
+  color: $graduation;
+  background-color: $light_graduation;
+}
+.entrance_content {
+  color: $entrance;
+  background-color: $light_entrance;
+}
+.childrens_content {
+  color: $childrens;
+  background-color: $light_childrens;
+}
+.mothers_content {
+  color: $mothers;
+  background-color: $light_mothers;
+}
+.fathers_content {
+  color: $fathers;
+  background-color: $light_fathers;
+}
+.thanksgiving_content {
+  color: $thanksgiving;
+  background-color: $light_thanksgiving;
+}
+.halloween_content {
+  color: $halloween;
+  background-color: $light_halloween;
+}
+.christmas_content {
+  color: $christmas;
+  background-color: $light_christmas;
 }
 
 
@@ -82,8 +174,6 @@ h1,h5 {
   background-color: lightgray;
   font-family: 'arial black';
 }
-
-$choco: #d2691e;
 .copyright {
   background-color: $choco;
   color: white;

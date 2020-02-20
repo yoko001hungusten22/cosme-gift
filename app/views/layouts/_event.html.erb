@@ -1,27 +1,23 @@
-<% year = 2020 %> 
-<% events = { "成人の日" => "coming_of_age", "バレンタインデー" => "valentine",
-              "ホワイトデー" => "white", "卒業式・追いコン" => "graduation",
-             "入学式" => "entrance", "こどもの日" => "childrens",
-             "母の日" => "mothers", "父の日" => "fathers", "敬老感謝の日" => "thanksgiving",
-             "ハロウィン" => "halloween", "クリスマス" => "christmas"} %>
+<% ja2en = {"誕生日" => "birthday",
+            "成人の日" => "coming_of_age",
+            "バレンタインデー" => "valentine",
+            "ホワイトデー" => "white",
+            "卒業式・追いコン" => "graduation",
+            "入学式" => "entrance",
+            "こどもの日" => "childrens",
+            "母の日" => "mothers",
+            "父の日" => "fathers",
+            "敬老感謝の日" => "thanksgiving",
+            "ハロウィン" => "halloween",
+            "クリスマス" => "christmas"} %>
 <% months = ["1月", "2月", "3月", "4月", "5月", "6月", 
              "7月", "8月", "9月", "10月", "11月", "12月"] %>
 
 <div class="events col-md-2">
-  イベントから探す♪
+  <h4>イベント一覧</h4>
   <ul>
-    <% events.each do |key, value| %>
-      <li>
-        <%= link_to key, gift_event_path(year,value) %>
-      </li>
-    <% end %>
-  </ul>
-  誕生月から探す♪
-  <ul>
-    <% months.each do |month| %>
-      <li>
-        <%= link_to month, gift_month_path(year,month.delete("月")) %>
-      </li>
+    <% ja2en.each do |key, value| %>
+      <a href=<%= index_event_path(value) %> ><li class="<%= value %>"><%= key %></li></a>
     <% end %>
   </ul>
 </div>
