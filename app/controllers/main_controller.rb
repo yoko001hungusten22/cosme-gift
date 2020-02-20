@@ -142,3 +142,32 @@ def date2event(date)
     return false
   end
 end
+
+def month_from_event_name(event)
+  if event == "coming_of_age" then
+    return [12,1]
+  elsif event == "valentine" then
+    return [1,2]
+  elsif event == "white" then
+    return [2,3]
+  elsif event == "graduation" then
+    return [2,3]
+  elsif event == "entrance" then
+    return [3,4]
+  elsif event == "childrens" then
+    return [4,5]
+  elsif event == "mothers" then
+    return [4,5]
+  elsif event == "fathers" then
+    return [5,6]
+  elsif event == "thanksgiving" then
+    return [8,9]
+  elsif event == "halloween" then
+    return [9,10]
+  elsif event == "christmas" then
+    return [11,12]
+  elsif event == "birthday" then
+    month = Date.today.month
+    return [month,month+1]
+  end
+end
