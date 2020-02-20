@@ -22,20 +22,19 @@ class MainController < ApplicationController
   end
 
   def gift_new
-    year = Date.today.year
-    month = Date.today.month  # TODO: 次イベントの判定ロジックが実装され次第それに換装
-    filename = "#{Rails.root}/lib/new_release/new_release_#{year}_#{month}.json"
-    begin
-      raw_hash = File.open(filename) do |json_file|
-        JSON.load(json_file)
-      end
-    rescue => error
-      filename = "#{Rails.root}/lib/new_release/sample.json"
-      raw_hash = File.open(filename) do |json_file|
-        JSON.load(json_file)
-      end
+    event_name = params[:event_name]
+    raw_hashes = []
+    for month in month_from_event_name(event_name)
+      year = month_to_year(month)
+      filename = "#{Rails.root}/lib/new_release/new_release_#{year}_#{month}.json"
+      raw_hashes.push(get_json(filename))
     end
-    result = convert_with_price(raw_hash["results"])
+    # puts month1, month_to_year(month1), month2, month_to_year(month2)
+    # puts month_from_event_name(event_name)
+    # year = Date.today.year
+    # month = Date.today.month  # TODO: 次イベントの判定ロジックが実装され次第それに換装
+    
+    result = convert_with_price(raw_hashes)
     @petitprice, @lowprice, @middleprice, @highprice = *result
     
     en2ja = { "birthday" => "誕生日",
@@ -90,31 +89,47 @@ def exec_api(uri)
     return raw_hash
 end
 
-def convert_with_price(raw_hash)
+def get_json(filename)
+  begin
+    raw_hash = File.open(filename) do |json_file|
+      JSON.load(json_file)
+    end
+  rescue => error
+    filename = "#{Rails.root}/lib/new_release/sample.json"
+    raw_hash = File.open(filename) do |json_file|
+      JSON.load(json_file)
+    end
+  end
+  return raw_hash
+end
+
+def convert_with_price(raw_hashes)
   group_by_price_range = [{}, {}, {}, {}]
-  for res_hash in raw_hash
-    release_at, brands = res_hash["date"], res_hash["brands"]
-    for brand in brands
-      brand_name = brand["brand_name"]
-      for group in group_by_price_range
-        group[brand_name] = [] if !group.has_key?(brand_name)
-      end
-      for product in brand["products"]
-        if product["sku"]["volume_sales"].length.zero?
-          next
+  for raw_hash in raw_hashes
+    for res_hash in raw_hash["results"]
+      release_at, brands = res_hash["date"], res_hash["brands"]
+      for brand in brands
+        brand_name = brand["brand_name"]
+        for group in group_by_price_range
+          group[brand_name] = [] if !group.has_key?(brand_name)
         end
-        price = product["sku"]["volume_sales"][0]["sales"]["price_value_from"]
-        if product["image_url"].nil?
-          product["image_url"] = "https://lh3.googleusercontent.com/proxy/q9K-584jea7P1JJu_HKizXAOZRuGvhq3hqpTF_mMamAgF9vr8NBtWUgLeGnHUx0yPjZnR3sI26QeTbWfUlDynP6Y3oayozuRRdqKFY8"
+        for product in brand["products"]
+          if product["sku"]["volume_sales"].length.zero?
+            next
+          end
+          price = product["sku"]["volume_sales"][0]["sales"]["price_value_from"]
+          if product["image_url"].nil?
+            product["image_url"] = "https://lh3.googleusercontent.com/proxy/q9K-584jea7P1JJu_HKizXAOZRuGvhq3hqpTF_mMamAgF9vr8NBtWUgLeGnHUx0yPjZnR3sI26QeTbWfUlDynP6Y3oayozuRRdqKFY8"
+          end
+          prod = {
+            "item_name" => product["product_name"],
+            "price" => price,
+            "image_url" => product["image_url"],
+            "release_at" => Date.strptime(release_at,'%Y-%m-%d'),
+            "shopping_link" => product["shopping_link"]
+          }
+          group_by_price_range[rate_index(price.to_i)][brand_name].push(prod)
         end
-        prod = {
-          "item_name" => product["product_name"],
-          "price" => price,
-          "image_url" => product["image_url"],
-          "release_at" => Date.strptime(release_at,'%Y-%m-%d'),
-          "shopping_link" => product["shopping_link"]
-        }
-        group_by_price_range[rate_index(price.to_i)][brand_name].push(prod)
       end
     end
   end
@@ -217,4 +232,13 @@ def month_from_event_name(event)
     month = Date.today.month
     return [month,month+1]
   end
+end
+
+
+def month_to_year(month)
+  today = Date.today
+  if today.month+1 < month
+    return today.year - 1
+  end
+  return today.year
 end
