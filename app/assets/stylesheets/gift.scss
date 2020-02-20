@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap-sprockets";
+@import "./colors";
 
 .content1 {
   background-color: bisque;
@@ -57,16 +58,63 @@
   position:absolute;
   top:1em;
   right:10px;
-  color:#fff;
   font-size:2rem;
   display: inline-block;
   text-decoration: none;
-  background: #8FD8D1;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;
+  color: #efffff;
+  &.birthday_content {
+    color: $light_birthday;
+    background-color: $birthday;
+  }
+  &.coming_of_age_content {
+    color: $coming_of_age;
+    background-color: $light_coming_of_age;
+  }
+  &.valentine_content {
+    color: $light_valentine;
+    background-color: $valentine;
+  }
+  &.white_content {
+    color: $light_white;
+    background-color: $white;
+  }
+  &.graduation_content {
+    color: $light_graduation;
+    background-color: $graduation;
+  }
+  &.entrance_content {
+    color: $light_entrance;
+    background-color: $entrance;
+  }
+  &.childrens_content {
+    color: $light_childrens;
+    background-color: $childrens;
+  }
+  &.mothers_content {
+    color: $light_mothers;
+    background-color: $mothers;
+  }
+  &.fathers_content {
+    color: $light_fathers;
+    background-color: $fathers;
+  }
+  &.thanksgiving_content {
+    color: $light_thanksgiving;
+    background-color: $thanksgiving;
+  }
+  &.halloween_content {
+    color: $light_halloween;
+    background-color: $halloween;
+  }
+  &.christmas_content {
+    color: $christmas;
+    background-color: $light_christmas;
+  }
 }
 
 .time {
@@ -83,7 +131,46 @@
 
 .brand_name {
   font-size: 2rem;
-  background: linear-gradient(transparent 50%, #8FD8D1 50%);
+}
+
+.under-lined {
+  color: #333;
+  &.birthday_content {
+    background: linear-gradient(transparent 50%,$birthday 50%);
+  }
+  &.coming_of_age_content {
+    background: linear-gradient(transparent 50%,$coming_of_age 50%);
+  }
+  &.valentine_content {
+    background: linear-gradient(transparent 50%,$light_valentine 50%);
+  }
+  &.white_content {
+    background: linear-gradient(transparent 50%,$light_white 50%);
+  }
+  &.graduation_content {
+    background: linear-gradient(transparent 50%,$light_graduation 50%);
+  }
+  &.entrance_content {
+    background: linear-gradient(transparent 50%,$light_entrance 50%);
+  }
+  &.childrens_content {
+    background: linear-gradient(transparent 50%,$light_childrens 50%);
+  }
+  &.mothers_content {
+    background: linear-gradient(transparent 50%,$light_mothers 50%);
+  }
+  &.fathers_content {
+    background: linear-gradient(transparent 50%,$light_fathers 50%);
+  }
+  &.thanksgiving_content {
+    background: linear-gradient(transparent 50%,$light_thanksgiving 50%);
+  }
+  &.halloween_content {
+    background: linear-gradient(transparent 50%,$light_halloween 50%);
+  }
+  &.christmas_content {
+    background: linear-gradient(transparent 50%,$christmas 50%);
+  }
 }
 
 .image{
