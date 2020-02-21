@@ -3,20 +3,21 @@
 
 <div class="col-md-9">
   <div class="price-wrapper">
-    <h2>おすすめランキング</h2>
-        <% @ranking.each do |item| %>
-        <div class="row">
-          <div class="col-md-4">
-            <%= item["rank"] %><br><br>
-                <div class="thumbnail">
-                    <%= image_tag item["image_url"]%>
-                    <div class="caption">
-                        <h5><%= link_to item["item_name"], item["shopping_link"] %></h5>
-                        <h6><%= item["volume_price_label"] %><%= item["price"] %></h6>
-                    </div>
-                </div>
-            <% end %>
-          </div>
+    <h1>週間ランキング</h1>
+        <% @ranking.each do |product| %>
+
+        <%= link_to product["shopping_link"] do %>
+            <div class="thumbnail" style="display: inline-block; width: 25rem; height: 25rem">
+              <span class="ranking-num"><%= product["rank"] %></span>
+              <%= image_tag product["image_url"], :size =>'135x135'%>
+              <div class="caption">
+                <p class="line-3"><%= product["item_name"]%></p>
+                <%= number_with_delimiter(product["volume_price_label"]) %> <br>
+              </div>
+            </div>
+        <% end %>
+       
+        <% end %>
         </div>
   </div>
 </div>
