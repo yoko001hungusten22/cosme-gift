@@ -1,6 +1,10 @@
 class MainController < ApplicationController
   def index
-    en2ja = { "birthday" => "誕生日",
+    month = Date.today.strftime("%m").to_i.to_s
+    next_month = (month.to_i+1).to_s
+    birthmonth = "( " + month + "・" + next_month + " 月 )"
+    
+    en2ja = { "birthday" => "誕生日#{birthmonth}",
               "coming_of_age" => "成人の日",
               "valentine" => "バレンタインデー",
               "white" => "ホワイトデー",
@@ -33,7 +37,11 @@ class MainController < ApplicationController
     result = convert_with_price(raw_hashes)
     @petitprice, @lowprice, @middleprice, @highprice = *result
     
-    en2ja = { "birthday" => "誕生日",
+    month = Date.today.strftime("%m").to_i.to_s
+    next_month = (month.to_i+1).to_s
+    birthmonth = "( " + month + "・" + next_month + " 月 )"
+    
+    en2ja = { "birthday" => "誕生日#{birthmonth}",
               "coming_of_age" => "成人の日",
               "valentine" => "バレンタインデー",
               "white" => "ホワイトデー",

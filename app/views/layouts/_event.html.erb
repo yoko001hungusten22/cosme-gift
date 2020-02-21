@@ -1,4 +1,18 @@
-<% ja2en = {"誕生日" => "birthday",
+<%  path = request.path
+    path_length = path.length
+    if path_length==1 then
+      flg=0
+    else
+      if path[1..5]=="index" then
+        flg=0
+      else
+        flg=1
+      end
+    end  %>
+<%  month = Date.today.strftime("%m").to_i.to_s
+    next_month = (month.to_i+1).to_s
+    birthmonth = "( " + month + "・" + next_month + "月 )" %>
+<% ja2en = {"誕生日#{birthmonth}" => "birthday",
             "成人の日" => "coming_of_age",
             "バレンタインデー" => "valentine",
             "ホワイトデー" => "white",
@@ -17,7 +31,11 @@
   <h4>イベント一覧</h4>
   <ul>
     <% ja2en.each do |key, value| %>
-      <a href=<%= index_event_path(value) %> ><li class="event <%= value %>"><%= key %></li></a>
+      <% if flg==0 then%>
+        <a href=<%= index_event_path(value) %> ><li class="event <%= value %>"><%= key %></li></a>
+      <% else %>
+        <a href=<%= gift_new_event_path(value) %> ><li class="event <%= value %>"><%= key %></li></a>
+      <% end %>
     <% end %>
   </ul>
 </div>
