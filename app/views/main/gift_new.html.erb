@@ -4,15 +4,16 @@
 <div class="col-md-9" style="margin-top: 3rem" ;>
   <div class="price">
     <ul id="price-list">
+      <h2><%= tag.span @event_name_ja, class:"under-lined #{@event_name_en+"_content"}" %><span style="font-size: 0.7em;">のプレゼントに</span></h2>
       <li class="price-list-item">
         <div class="list-head">
           <h3 class="list-name">プチプラ</h3>
-          <span class="list-icon">+</span>
+          <span class="list-icon <%= @event_name_en+"_content" %>">+</span>
         </div>
         <div class="answer">
           <% @petitprice.each do |brand| %>
           <div class="row">
-            <%= tag.span brand["brand_name"], class:"brand_name"%><br><br>
+            <%= tag.span brand["brand_name"], class:"brand_name under-lined #{@event_name_en+"_content"}" %><br><br>
             <% brand["products"].each do |product| %>
             <%= link_to product["shopping_link"] do %>
             <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
@@ -32,12 +33,12 @@
       <li class="price-list-item">
         <div class="list-head">
           <h3 class="list-name">2,000~5,000円</h3>
-          <span class="list-icon">+</span>
+          <span class="list-icon <%= @event_name_en+"_content" %>">+</span>
         </div>
         <div class="answer">
           <% @lowprice.each do |brand| %>
           <div class="row">
-            <%= tag.span brand["brand_name"], class:"brand_name" %><br><br>
+            <%= tag.span brand["brand_name"], class:"brand_name under-lined #{@event_name_en+"_content"}" %><br><br>
             <% brand["products"].each do |product| %>
             <%= link_to product["shopping_link"] do %>
             <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
@@ -57,12 +58,12 @@
       <li class="price-list-item">
         <div class="list-head">
           <h3 class="list-name">5,000~10,000円</h3>
-          <span class="list-icon">+</span>
+          <span class="list-icon <%= @event_name_en+"_content" %>">+</span>
         </div>
         <div class="answer">
           <% @middleprice.each do |brand| %>
           <div class="row">
-            <%= tag.span brand["brand_name"], class:"brand_name" %><br><br>
+            <%= tag.span brand["brand_name"], class:"brand_name under-lined #{@event_name_en+"_content"}" %><br><br>
             <% brand["products"].each do |product| %>
             <%= link_to product["shopping_link"] do %>
             <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
@@ -82,12 +83,12 @@
       <li class="price-list-item">
         <div class="list-head">
           <h3 class="list-name">10,000円以上</h3>
-          <span class="list-icon">+</span>
+          <span class="list-icon <%= @event_name_en+"_content" %>">+</span>
         </div>
         <div class="answer">
           <% @highprice.each do |brand| %>
           <div class="row">
-            <%= tag.span brand["brand_name"], class:"brand_name" %><br><br>
+            <%= tag.span brand["brand_name"], class:"brand_name under-lined #{@event_name_en+"_content"}" %><br><br>
             <% brand["products"].each do |product| %>
             <%= link_to product["shopping_link"] do %>
             <div class="thumbnail" style="display: inline-block; width: 12rem; height: 20rem">
