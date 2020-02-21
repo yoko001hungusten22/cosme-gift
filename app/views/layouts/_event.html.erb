@@ -1,3 +1,14 @@
+<%  path = request.path
+    path_length = path.length
+    if path_length==1 then
+      flg=0
+    else
+      if path[1..5]=="index" then
+        flg=0
+      else
+        flg=1
+      end
+    end  %>
 <% ja2en = {"誕生日" => "birthday",
             "成人の日" => "coming_of_age",
             "バレンタインデー" => "valentine",
@@ -14,10 +25,16 @@
              "7月", "8月", "9月", "10月", "11月", "12月"] %>
 
 <div class="events col-md-2">
+  <%= path %>
+  <%= flg %>
   <h4>イベント一覧</h4>
   <ul>
     <% ja2en.each do |key, value| %>
-      <a href=<%= index_event_path(value) %> ><li class="event <%= value %>"><%= key %></li></a>
+      <% if flg==0 then%>
+        <a href=<%= index_event_path(value) %> ><li class="event <%= value %>"><%= key %></li></a>
+      <% else %>
+        <a href=<%= gift_new_event_path(value) %> ><li class="event <%= value %>"><%= key %></li></a>
+      <% end %>
     <% end %>
   </ul>
 </div>
