@@ -9,7 +9,10 @@
         flg=1
       end
     end  %>
-<% ja2en = {"誕生日" => "birthday",
+<%  month = Date.today.strftime("%m").to_i.to_s
+    next_month = (month.to_i+1).to_s
+    birthmonth = "( " + month + "・" + next_month + "月 )" %>
+<% ja2en = {"誕生日#{birthmonth}" => "birthday",
             "成人の日" => "coming_of_age",
             "バレンタインデー" => "valentine",
             "ホワイトデー" => "white",
