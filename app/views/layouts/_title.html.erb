@@ -1,5 +1,17 @@
-<div class="logo col-md-11">
+<div class="logo col-md-10">
   <a href=<%= root_path %>><%= image_tag("for_gift_logo.png", :size =>'420x61', alt: "@cosme logo") %></a>
+</div>
+<div class="page_links col-md-1">
+  <ul id="dropmenu">
+    <li><a href="#">メニュー</a>
+      <ul>
+        <li><a href=<%= root_path %>>▶︎トップページへ</a></li>
+        <li><a href=<%= gift_new_event_path("birthday") %>>▶︎新作コスメへ</a></li>
+        <li><a href=<%= gift_rank_path %>>▶︎週間ランキングへ</a></li>
+        <li><a href=<%= gift_recommend_path %>>▶︎おすすめへ</a></li>
+      </ul>
+    </li>
+  </ul>
 </div>
 <div class="icon col-md-1">
   <a href="https://www.cosme.net" target="_blank"><%= image_tag("at_cosme_icon.jpg", :size =>'66x61', alt: "@cosme icon") %></a>

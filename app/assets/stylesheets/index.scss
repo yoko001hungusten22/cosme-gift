@@ -22,7 +22,77 @@
   background-color: white;
   border-bottom: 1px solid #000000;
 }
-
+.page_links {
+  background-color: white;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 1px;
+}
+// 以下クソ汚い (http://js.crap.jp/book/chapter2/drop-down-menu.html)
+#dropmenu{
+  list-style-type: none;
+  width: 300px;
+  height: 50px;
+  background: white;
+  text-align: left;
+}
+#dropmenu li{
+  position: relative;
+  width: 20%;
+  float: left;
+  margin-top: 23px;
+  padding: 0px;
+}
+#dropmenu li a{
+  display: block;
+  color: #2EB6AA;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+  text-decoration: none;
+}
+#dropmenu li ul{
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin: 0;
+	padding: 0;
+  border-radius: 0 0 3px 3px;
+  z-index: 2;
+}
+#dropmenu li ul li{
+  overflow: hidden;
+  width: 230%;
+  height: 0;
+  color: #2EB6AA;
+  -moz-transition: .2s;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  -ms-transition: .2s;
+  transition: .2s;
+}
+#dropmenu li ul li a{
+  padding: 13px 15px;
+  background: white;
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+}
+#dropmenu li:hover > a{
+  background: white;
+  color: #2EB6AA;
+}
+#dropmenu > li:hover > a{
+  border-radius: 3px 3px 0 0;
+}
+#dropmenu li:hover ul li{
+  overflow: visible;
+}
+#dropmenu li:hover ul li:last-child a{
+  border-radius: 10px;
+}
+// ここまで汚い
 .icon {
   background-color: white;
   border-bottom: 1px solid #000000;
