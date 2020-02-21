@@ -17,13 +17,17 @@
   background-color: #FF00FF;
 }
 
-/*price wrapper*/
+a:hover {
+  text-decoration: none;
+}
+
 .price-wrapper {
-  padding-top: 100px;
   margin: 0 auto;
-  
   h2{
-    text-align: center;
+    margin: 50px 0px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
   }
 }
 
@@ -135,6 +139,7 @@
 
 .under-lined {
   color: #333;
+  background: linear-gradient(transparent 50%, #5FE6DA 50%);
   &.birthday_content {
     background: linear-gradient(transparent 50%,$birthday 50%);
   }
@@ -197,6 +202,9 @@
   height: 28px;
   position: absolute;
   background-color: #f0e68c;
+  color: #555;
+  text-align: center;
+  line-height: 100%;
   padding: 5px;
   border: solid 1px lightgray;
 }

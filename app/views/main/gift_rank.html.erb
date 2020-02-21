@@ -3,11 +3,11 @@
 
 <div class="col-md-9">
   <div class="price-wrapper">
-    <h1>週間ランキング</h1>
+    <h2><span class="under-lined">週間ランキング</span></h2>
         <% @ranking.each do |product| %>
 
         <%= link_to product["shopping_link"] do %>
-            <div class="thumbnail" style="display: inline-block; width: 25rem; height: 25rem">
+            <div class="thumbnail" style="display: inline-block; width: 24.7%; padding: 0px;">
               <span class="ranking-num"><%= product["rank"] %></span>
               <%= image_tag product["image_url"], :size =>'135x135'%>
               <div class="caption">
@@ -16,7 +16,7 @@
               </div>
             </div>
         <% end %>
-       
+
         <% end %>
         </div>
   </div>
